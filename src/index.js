@@ -1,10 +1,12 @@
-require('dotenv').config();
-const express = require('express');
-const app = express();
-const routes = require('./routes');
-const sequelize = require('./config/database');
+import dotenv from 'dotenv';
+dotenv.config();
 
-app.use(express.json());
+import express, { json } from 'express';
+import routes from './routes/index.js';
+import sequelize from './config/database.js';
+
+const app = express();
+app.use(json());
 app.use('/api', routes);
 
 sequelize.authenticate()

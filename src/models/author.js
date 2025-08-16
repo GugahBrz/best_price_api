@@ -1,8 +1,8 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+
+import { Model } from 'sequelize';
+
+export default (sequelize, DataTypes) => {
   class Author extends Model {
     /**
      * Helper method for defining associations.
@@ -16,11 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Author.init({
     name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Author',
   });
+
   return Author;
 };
